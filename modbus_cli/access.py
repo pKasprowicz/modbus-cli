@@ -3,6 +3,7 @@ from itertools import zip_longest, groupby
 import logging
 import re
 import fnmatch
+import string
 
 import umodbus.exceptions
 
@@ -175,6 +176,8 @@ class Access:
 
                 if 'f' in pack_type or 'd' in pack_type:
                     value = float(value)
+                elif 's' in pack_type:
+                    value = bytearray(value, encoding='ascii')
                 else:
                     value = int(value, 0)
 

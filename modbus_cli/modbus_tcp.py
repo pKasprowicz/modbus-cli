@@ -20,7 +20,7 @@ class ModbusTcp:
         import socket
         self.connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.connection.settimeout(5)
-        self.connection.connect((self.host, self.port))
+        #self.connection.connect((self.host, self.port))
 
     def send(self, request):
         self.connection.send(request)
